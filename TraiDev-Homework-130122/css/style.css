@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.box{
+    width: 1000px;
+    height: 180px;
+    background: #d8ec66;
+    margin: 50px auto;
+    text-align: center;
+    line-height: 180px;
+}
+
+.fa-facebook-f{
+    font-size: 80px;
+    color: #0000f0;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    background-color: white;
+    border-radius:100%;
+    text-align:center;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+.f2{
+    font-size: 80px;
+    color: white;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    background-color: #0793e8;
+    border-radius:100%;
+    text-align:center;
+    vertical-align:middle;
+    display:inline-block;
+}
