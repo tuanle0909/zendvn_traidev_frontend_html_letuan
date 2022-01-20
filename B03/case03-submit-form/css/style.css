@@ -73,3 +73,22 @@ p{
 color: #151749;
 font-family: "Muli";
 }
+
+.input{
+    height: 147px;
+}
+
+input{
+    display: block;
+    margin: 0 auto;
+    margin-top: 27px;
+    width: 247px;
+height: 77px;
+border-radius: 38px;
+filter: drop-shadow(0px 20px 10px rgba(2,6,127,0.35));
+background-color: #20225e;
+font-size: 18px;
+color: #ffffff;
+font-weight: 700;
+font-family: "Muli";
+}
