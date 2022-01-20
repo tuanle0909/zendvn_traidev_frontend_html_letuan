@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  position: relative;
+  width: 1200px;
+  height: 1600px;
+  background-color: #f5f3fd;
+}
+
+.from {
+  position: absolute;
+  margin: auto;
+  width: 50%;
+  width: 1169px;
+  height: 865px;
+  border-radius: 10px;
+  filter: drop-shadow(0px 15px 20px rgba(0, 64, 102, 0.4));
+  background-color: #ffffff;
+  transform: translate(50%, 50%);
+}
+
+.from-child-right {
+  display: inline-block;
+  float: left;
+  position: relative;
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 465px;
+  height: 785px;
+  border-radius: 5px;
+  background-image: linear-gradient(135deg, #ba91e9 0%, #6d58ce 100%);
+}
+
+.checked {
+  color: white;
+  text-align: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.23137254901960785);
+}
+
+.from-child1 {
+  line-height: 22px;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 65px;
+  height: 480px;
+  width: 300px;
+}
+
+p.title {
+  line-height: 62px;
+  height: 62px;
+  font-size: 20px;
+  color: #ffffff;
+  font-family: "Muli";
+}
+
+p.body {
+  height: 71px;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "Muli";
+}
+
+.form-register {
+  margin-top: 152px;
+  margin-left: 96px;
+  float: left;
+  height: 570px;
+  width: 417px;
+}
+
+h1 {
+  height: 71px;
+  font-size: 32px;
+  color: #151e42;
+  font-weight: 600;
+  font-family: "Muli";
+}
+
+.box {
+  height: 125px;
+}
+
+.box-title {
+  font-size: 16px;
+  color: #151e42;
+  font-weight: 600;
+  font-family: "Muli";
+}
+
+.input-box {
+  font-size: 16px;
+  color: #151e42;
+  font-weight: 600;
+  font-family: "Muli";
+  margin-top: 14px;
+  width: 417px;
+  height: 47px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid #e4e8ee;
+}
+
+.input-box::placeholder {
+  padding: 15px;
+}
+
+.check-box {
+  height: 70px;
+}
+
+.check-box .box {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: 1px solid #e4e8ee;
+}
+
+.check-box p {
+  margin-top: 6px;
+  margin-left: 10px;
+  position: absolute;
+  display: inline-block;
+  font-size: 16px;
+  color: #151e42;
+  font-weight: 600;
+  font-family: "Muli";
+}
+
+.submit {
+  width: 417px;
+  height: 60px;
+  border-radius: 5px;
+  filter: drop-shadow(0px 20px 10px rgba(89, 77, 223, 0.5));
+  background-color: #6e59ce;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Muli";
+}
