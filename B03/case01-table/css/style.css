@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    margin-right: 20px;
+    margin-left: 20px;
+    max-width: auto;
+}
+
+table{
+    border:1px solid #9ca4ac;
+    border-collapse: collapse;
+    font-size: 0px;
+    margin: 50px auto ;
+}
+
+table th, td{
+    position: sticky;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+}
+
+th{
+    height: 40px;
+    color: white;
+    background-color: #415465;
+}
+
+td{
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+img{
+    padding: 10px;
+    width: 180px;
+    height: 120px;
+}
+
+
+
