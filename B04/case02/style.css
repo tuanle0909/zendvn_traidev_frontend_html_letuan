@@ -1,0 +1,147 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    margin: 50px auto;
+    width: 250px;
+    height: 250px;
+    background-color: gold;
+    position: relative;
+}
+
+/* ngang */
+/* .box::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    top: 0;
+    left: 0;
+    right: 100%;
+}
+
+.box:hover::before {
+    right: 0;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+}
+
+.box:hover::after {
+    left: 0;
+} */
+
+/* doc */
+/* .box > span::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    bottom: 0;
+    left: 0;
+    top: 100%;
+}
+
+.box:hover span::before {
+    top: 0;
+}
+
+.box > span::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+}
+
+.box:hover span::after {
+    bottom: 0;
+} */
+
+
+
+/* top: trái sang phải */
+.box::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    top: 0;
+    left: 0;
+    right: 100%;
+}
+
+.box:hover::before {
+    right: 0;
+}
+
+/* right: trên xuống dưới */
+.box::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    transition-delay: 0.5s;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+}
+
+.box:hover::after {
+    bottom: 0;
+}
+
+/* bottom: phải sang trái */
+.box > span::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    transition-delay: 1s;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+}
+
+.box:hover span::after {
+    left: 0;
+}
+
+/* left: dưới lên trên */
+.box > span::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: red;
+    transition: all 0.5s linear;
+    transition-delay: 1.5s;
+    bottom: 0;
+    left: 0;
+    top: 100%;
+}
+
+.box:hover span::before {
+    top: 0;
+}
+
