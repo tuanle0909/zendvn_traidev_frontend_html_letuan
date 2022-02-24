@@ -3,7 +3,7 @@
 *::after {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 .btn {
-  margin: 120px;
+  margin: 150px;
   position: relative;
   font-family: sans-serif;
   font-size: 20px;
@@ -26,7 +26,7 @@ body {
   content: "";
   position: absolute;
   z-index: -1;
-  transition: all 0.3s;
+  transition: all 0.3s linear;
 }
 
 .btn1:hover {
@@ -42,11 +42,11 @@ body {
   background: white;
 }
 
-.btn2:hover{
+.btn2:hover {
   color: rgb(129, 188, 255);
 }
 
-.btn2:hover:after{
+.btn2:hover:after {
   height: 100%;
 }
 
@@ -58,10 +58,10 @@ body {
   background: white;
 }
 
-.btn3:hover{
+.btn3:hover {
   color: rgb(129, 188, 255);
 }
 
 .btn3:hover:after {
   width: 100%;
-}   
+}

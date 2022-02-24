@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+}
+
+.post{
+    overflow: hidden;
+    margin: 10px;
+    height: 400px;
+    box-shadow: 10px 10px 20px #aaaaaa;  
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.img{
+    overflow: hidden;
+    width: 300px;
+    height: 180px;
+}
+
+img{
+    width: 300px;
+    height: 180px;
+    transition: transform 0.5s;
+}
+
+img:hover{
+    transform: scale(1.5);
+}
+
+.post:hover{
+    transform: scale(1.05);
+}
+
+.title{
+    word-break: break-word;
+    font-size: 16px;
+    color: blue;
+}
+
+

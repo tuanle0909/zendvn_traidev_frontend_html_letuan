@@ -1,0 +1,48 @@
+*,
+*::after,
+*::before {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: rgb(165, 165, 165);
+}
+
+.menu-bar{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 10px;
+    height: 90px;
+    max-width: 1000px;
+    background-color: white;
+}
+
+.logo{
+    font-size: 30px;
+}
+
+.hide-menu{
+    display: none;
+}
+
+li{
+    margin: 20px;
+    display: inline-block;
+    list-style: none;
+}
+
+@media only screen and (max-width: 600px) {
+    ul{
+        display: none;
+    }
+
+    .hide-menu{
+        display: inline;
+        color: black;
+        font-size: 20px;
+    }
+  }

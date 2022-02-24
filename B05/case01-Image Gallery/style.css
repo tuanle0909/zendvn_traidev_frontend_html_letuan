@@ -1,0 +1,74 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    height: 100vh;
+    background-color: grey;
+}
+
+h1{
+    margin: 10px;
+    text-align: center;
+    color: white;
+}
+
+.content{
+    display: flex;
+    overflow: hidden;
+    margin: auto;
+    height: 500px;
+    width: 900px;
+    background-color: white;
+}
+
+.img{
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-basis: 0;
+    transition: flex-grow .3s;
+    height: 500px;
+}
+
+.img::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 200px);
+    display: block;
+    background-attachment: fixed;
+}
+
+.img:hover {
+    flex-grow: 7;
+    transition: flex-grow 0.3s; 
+}
+
+.img1::before{
+    background:url(image/1068690.png) ;
+}
+ 
+.img2::before{
+    background: url(image/4675632.png);
+}
+
+.img3::before{
+    background: url(image/assassins-creed-valhalla-game-by-1920x1080.png);
+}
+
+.img4::before{
+    background: url(image/cfa821cd8213ac508b9fe968d1dbcb43.png);
+}
+
+.img5::before{
+    background: url(image/fqv2ieopz7131.png);
+}
+
+.img6::before{
+    background: url(image/ss_1bd99270dcbd4ff9fe9c94b0d9c8ffc50ebb42c7.1920x1080.png);
+}
+
+
+
