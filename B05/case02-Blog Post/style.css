@@ -8,43 +8,59 @@
 
 body{
     height: 100vh;
+}
+
+.wrapper{
+    width: 1000px;
+    margin: auto;
+}
+
+.posts{
+    overflow: hidden;
     display: flex;
 }
 
-.post{
+.post-item{
     overflow: hidden;
+    width: 300px;
     margin: 10px;
-    height: 400px;
-    box-shadow: 10px 10px 20px #aaaaaa;  
+    box-shadow: 5px 5px 20px #aaaaaa;  
     background-color: white;
     border-radius: 10px;
-    transition: transform 0.5s;
 }
 
-.img{
+.post-image{
     overflow: hidden;
     width: 300px;
     height: 180px;
 }
 
-img{
+.post-image img{
     width: 300px;
     height: 180px;
     transition: transform 0.5s;
 }
 
-img:hover{
+.post-image img:hover{
     transform: scale(1.5);
 }
 
-.post:hover{
-    transform: scale(1.05);
+.post-content{
+    padding: 15px;
+    align-items: center;
 }
 
-.title{
-    word-break: break-word;
-    font-size: 16px;
-    color: blue;
+.post-author{
+    display: flex; 
 }
 
+.post-author img{
+    width: 40px; 
+    height: 40px; 
+    overflow: hidden; 
+    border-radius: 50%;
+}
 
+.post-time{
+    margin-left: auto;
+}
