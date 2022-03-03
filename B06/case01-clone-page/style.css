@@ -1,0 +1,189 @@
+*, 
+*::after, 
+*::before{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.nav-head{
+    padding: 10px;
+    background-color: #212529;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.head-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    width: 100%;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-head-menu{
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-head-menu li{
+    padding-left: 8px;
+    padding-right: 8px;
+    color: white;
+}
+
+.nav-head-menu a{
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #ffc800;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.nav-head-menu a:hover{
+    color: #cca000;
+}
+
+.header{
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background-image: url("../case01-clone-page/image/header-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.img-header-container{
+    height: 100vh;
+}
+
+.sub-text{
+    padding-top: 280px;
+    font-size: 40px;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI"
+}
+
+.main-text{
+    padding: 20px;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 3.25rem;
+    margin-bottom: 2rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI"
+}
+
+.services, .portfolio{
+    padding: 96px;
+}
+
+.container{
+    margin-bottom: 50px;
+}
+
+.title{
+    text-align: center !important;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    color: #757575;
+    font-size: 15px;
+}
+757575
+h4{
+    font-size: 30px;
+}
+
+.container .title h2{
+    padding-bottom: 15px;
+}
+
+.ser-des{
+    text-align: center;
+    padding: 12px;
+    height: 380px;
+    width: 320px;
+}
+
+
+.icon-circle > i{
+    color: white;
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    vertical-align: middle;
+    background-color: #ffc800;
+    line-height: 130px;
+    font-size: 60px;
+}
+
+.ser-description{
+    margin: 28px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ser-description .ser-des .icon, .ser-description .ser-des h4, .ser-description .ser-des p{
+    margin: 16px;
+}
+
+.content{
+    display: flex;
+}
+
+.portfolio{
+    background-color: #f8f9fa;
+}
+
+.portfolio-item{
+    margin: 12px;
+    background-color: white;
+    width: 360px;
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.item-img img{
+    width: 360px;
+}
+
+.portfolio-caption{
+    text-align: center;
+    padding: 24px;
+}
+
+.portfolio-caption .main-cap{
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.portfolio-caption .sub-cap{
+    color: #757575;
+}
+
+
+
+
+
+
+
