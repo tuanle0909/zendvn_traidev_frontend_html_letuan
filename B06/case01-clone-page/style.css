@@ -1,3 +1,4 @@
+
 *, 
 *::after, 
 *::before{
@@ -7,6 +8,7 @@
 }
 
 body{
+    font-family: ;
     margin: 0;
 }
 
@@ -24,10 +26,10 @@ body{
 .head-container{
     display: flex;
     justify-content: space-between;
-    padding: 8px;
+    padding: 3px;
     width: 100%;
-    padding-right: 100px;
-    padding-left: 100px;
+    padding-right: 70px;
+    padding-left: 70px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -48,13 +50,17 @@ body{
 .nav-head-menu a{
     display: block;
     padding: 0.5rem 1rem;
-    color: #ffc800;
+    color: white;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 .nav-head-menu a:hover{
     color: #cca000;
+}
+
+.head-logo img{
+    margin: -18px auto;
 }
 
 .header{
