@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Reading</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-2">
+        <h1 class="text-center">Đọc sách</h1>
+        <section id="controls" class="card card-body flex-row align-items-center justify-content-center">
+            <div class="me-4">
+                <button class="btn btn-zoom" data-value="zoom-out"><i class="fas fa-search-minus"></i></button>
+                <button class="btn btn-zoom" data-value="zoom-in"><i class="fas fa-search-plus"></i></button>
+            </div>
+            <div class="d-flex align-items-center me-4">
+                <span class="input-group-text d-inline-flex">Màu nền </span>
+                <div class="ms-2">
+                    <button class="border border-dark btn btn-primary p-3 btn-background" data-value="blue"></button>
+                    <button class="border border-dark btn btn-light p-3 btn-background" data-value="white"></button>
+                    <button class="border border-dark btn btn-success p-3 btn-background" data-value="green"></button>
+                    <button class="border border-dark btn btn-warning p-3 btn-background" data-value="gold"></button>
+                    <button class="border border-dark btn btn-danger p-3 btn-background" data-value="red"></button>
+                </div>
+            </div>
+            <div class="me-4">
+                <div class="input-group">
+                    <span class="input-group-text">Khoảng cách dòng</span>
+                    <select class="form-select slb-line-spacing">
+                        <option value="1.5">Vừa</option>
+                        <option value="1">Nhỏ</option>
+                        <option value="2">Lớn</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="input-group">
+                    <span class="input-group-text">Canh lề</span>
+                    <select class="form-select slb-align">
+                        <option value="left">Trái</option>
+                        <option value="right">Phải</option>
+                        <option value="justify">Đều</option>
+                        <option value="center">Giữa</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="reset">Reset setting</button>
+        </section>
+        <section id="content" class="card card-body mt-2">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus maiores mollitia consequuntur? Cum
+                commodi debitis et. Voluptates et provident, cum voluptate voluptatum alias, delectus asperiores atque
+                magni, fugit evenie t laborum!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro blanditiis velit modi maxime quam, labore recusandae repellat tenetur unde in harum asperiores qui corporis vero ullam provident quisquam at voluptas laudantium expedita placeat ad? Corporis quod amet harum maiores omnis!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sequi velit laboriosam maxime
+                nostrum necessitatibus aliquam iste reprehenderit numquam! Aliquid minus magni corporis magnam
+                consequuntur minima sint beatae, sit voluptatum?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis modi placeat incidunt at voluptatibus, quibusdam, perspiciatis eligendi obcaecati perferendis maiores animi, eum vel aspernatur doloremque fugit et quasi soluta beatae dolorum rem ducimus saepe! Ipsam adipisci modi quo, dignissimos facere accusamus omnis enim eaque sint perspiciatis quos vel tempore doloribus.</p>
+        </section>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
