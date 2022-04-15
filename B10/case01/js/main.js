@@ -1,32 +1,13 @@
-// let items = [
-//     {
-//         id: getRandomID(),
-//         name: "Task 1",
-//         level: 1
-//     },
-
-//     {
-//         id: getRandomID(),
-//         name: "Task 2",
-//         level: 2
-//     },
-
-//     {
-//         id: getRandomID(),
-//         name: "Task 3",
-//         level: 3
-//     }
-// ];
-
-// saveStorage(items);
-
 let items = loadStorage();
-console.log(items);
+let idEdit = "";
+let idx = "";
 
 const nameTask = document.getElementById("input-name");
 const submit = document.getElementById("btn-submit");
 const level = document.getElementById("input-level");
 const searchKey = document.getElementById("search-input");
+const sortDisplay = document.getElementById("sort-display");
+const search = document.getElementById("btn-search");
 
 function showLevel(level) {
   let color = "dark";
@@ -43,19 +24,21 @@ function showLevel(level) {
   return `<span class="badge bg-${color}">${text}</span>`;
 }
 
-showItems();
+showItems(items);
 
-function showItems() {
+function showItems(data) {
   let content = "";
   let areaList = document.getElementById("area-list-task");
-  items.forEach(function (ele, index) {
-    content += `<tr>
+  data.forEach((ele, index) => {
+    content += `<tr id=${index}>
         <td>${index + 1}</td>
         <td>${ele.id}</td>
-        <td>${ele.name}</td>
+        <td id="elemname${index}">${ele.name}</td>
         <td>${showLevel(ele.level)}</td>
         <td>
-            <button class="btn btn-warning">Edit</button>
+            <button class="btn btn-warning btn-edit" data-id="${
+              ele.id
+            }">Edit</button>
             <button class="btn btn-danger btn-delete" data-id="${
               ele.id
             }">Delete</button>
@@ -89,13 +72,24 @@ document.getElementById("btn-submit").addEventListener("click", function () {
   const getName = nameTask.value;
   const getLevel = parseInt(level.value);
   let newItem = {
-    id: getRandomID(),
+    id: idEdit ? idEdit : getRandomID(),
     name: getName,
     level: getLevel,
   };
-  items.push(newItem);
+
+  if (idEdit) {
+    const index = items.findIndex((x) => x.id === idEdit);
+    items[index].name = getName;
+    items[index].level = getLevel;
+  } else {
+    items.push(newItem);
+  }
+
+  idEdit = "";
+  nameTask.value = "";
+  level.value = 1;
   saveStorage(items);
-  showItems();
+  showItems(items);
 });
 
 document.addEventListener("click", function (e) {
@@ -105,13 +99,45 @@ document.addEventListener("click", function (e) {
     const index = items.findIndex((x) => x.id === id);
     items.splice(index, 1);
     saveStorage(items);
-    showItems();
+    showItems(items);
+  }
+
+  if (el.classList.contains("btn-edit")) {
+    showItems(items);
+    let id = el.dataset.id;
+    let item = items.find((x) => x.id === id);
+    nameTask.value = item.name;
+    level.value = item.level;
+    idEdit = id;
+  }
+
+  if (el.classList.contains("sort-value")) {
+    let orderBy = el.dataset.orderBy;
+    let orderDir = el.dataset.orderDir;
+    sortDisplay.innerHTML = `${orderBy} - ${orderDir}`.toUpperCase();
+    items.sort(function (x, y) {
+      let firstValue = (x[orderBy] + "").toLowerCase();
+      let secondValue = (y[orderBy] + "").toLowerCase();
+      if (firstValue < secondValue) {
+        return orderDir === "asc" ? -1 : 1;
+      }
+      if (firstValue > secondValue) {
+        return orderDir === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+    showItems(items);
   }
 });
 
-document.getElementById('btn-search').addEventListener('click',function(){
-  let searchValue = searchKey.value;
-  let 
-})
-
-
+search.addEventListener("click", function () {
+  const searchString = searchKey.value;
+  let listSearch = [...items];
+  listSearch.forEach((elem, index) => {
+    elem.name = elem.name.replace(
+      searchString,
+      `<span class="highlight">${searchString}</span>`
+    );
+  });
+  showItems(listSearch);
+});

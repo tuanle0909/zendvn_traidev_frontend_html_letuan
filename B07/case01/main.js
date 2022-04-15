@@ -5,5 +5,5 @@ function hightText() {
             text[i] = "<span class='hu'>"+text[i]+"</span>"
         }
     }
-    document.getElementById("h").innerHTML = text.join(" ");
+    document.getElementById("h").innerHTML = text.join(" ");x
 }
