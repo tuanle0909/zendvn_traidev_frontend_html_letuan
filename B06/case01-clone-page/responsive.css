@@ -1,0 +1,51 @@
+@media screen and (max-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .nav-header {
+        display: none;
+    }
+    .nav-menu > button {
+        display: initial;
+    }
+    .header-menu {
+        background-color: #212529;
+    }
+
+    .portfolio-item {
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+
+    .service-content .col-1 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .portfolio-item {
+        width: 100%;
+    }
+}
