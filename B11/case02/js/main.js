@@ -82,7 +82,7 @@ $(document).on('click','.btn-delete' ,'.btn-edit', function(){
     showItems();
 
     let idBtnEdit = $('.btn-edit').data('id');
-    showItems();
+    showItems();  
     let item = items.find((x) => x.id === idBtnEdit);
     nameTask.value = item.name;
     level.value = item.level;

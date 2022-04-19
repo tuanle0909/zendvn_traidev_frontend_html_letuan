@@ -7,145 +7,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<nav class="nav-head">
-    <div class="head-container">
-        <div class="head-logo">
-            <img src="image/navbar-logo.png.png" width="140px">
+
+<body>
+    <nav class="header-menu fixed" id="navMenu">
+        <div class="container">
+            <img src="image/navbar-logo.png.png">
+            <div class="nav-menu">
+                <ul class="nav-header">
+                    <li><a class="nav-item" href="#services">services</a></li>
+                    <li><a class="nav-item" href="#portfolio">portfolio</a></li>
+                    <li><a class="nav-item" href="#about">about</a></li>
+                    <li><a class="nav-item" href="#team">team</a></li>
+                    <li><a class="nav-item" href="#contact">contact</a></li>
+                </ul>
+                <button class="menu-bar tablet" type="button">Menu<i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-        <ul class="nav-head-menu">
-            <li><a href=#services>Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-<header>
-    <section class="header">
-        <div class="img-header-container">
-            <div class="sub-text">Welcome To Our Studio!</div>
-            <div class="main-text">It's Nice To Meet You</div>
-            <a>Tell Me More</a>
+    </nav>
+    <header class="image-header">
+        <div class="container">
+            <div class="subtext">
+                Welcome To Our Studio!
+            </div>
+            <div class="maintext">
+                It's Nice To Meet You
+            </div>
+            <a class="button">
+                Tell me More
+            </a>
+        </div>
+    </header>
+    <script src="main.js"></script>
+    <section id="services">
+        <div class="container">
+            <div class="section-title">services</div>
+            <div class="section-decription">Lorem ipsum dolor sit amet consectetur.</div>
+            <div class="service-content">
+                <div class="col-1">
+                    <span>
+                        <i class="fa-solid fa-cart-shopping icon"></i>
+                    </span>
+                    <h4>E-Commerce</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo
+                        inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-1">
+                    <span>
+                        <i class="fa-solid fa-laptop icon"></i>
+                    </span>
+                    <h4>Responsive Design</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo
+                        inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-1">
+                    <span>
+                        <i class="fa-solid fa-lock icon"></i>
+                    </span>
+                    <h4>Web Security</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo
+                        inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">portfolio</div>
+            <div class="section-decription">Lorem ipsum dolor sit amet consectetur.</div>
+            <div class="col-2">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image/header-bg.png">
+                        <div class="overlay">
+                            <div class="plus-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="item-title">Threads</div>
+                        <div class="item-caption">Illustration</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image/header-bg.png">
+                        <div class="overlay">
+                            <div class="plus-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="item-title">Threads</div>
+                        <div class="item-caption">Illustration</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image/header-bg.png">
+                        <div class="overlay">
+                            <div class="plus-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="item-title">Threads</div>
+                        <div class="item-caption">Illustration</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image/header-bg.png">
+                        <div class="overlay">
+                            <div class="plus-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="item-title">Threads</div>
+                        <div class="item-caption">Illustration</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image/header-bg.png">
+                        <div class="overlay">
+                            <div class="plus-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="item-title">Threads</div>
+                        <div class="item-caption">Illustration</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image/header-bg.png">
+                        <div class="overlay">
+                            <div class="plus-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="item-title">Threads</div>
+                        <div class="item-caption">Illustration</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-</header>
-<section class="services" id="services">
-    <div class="container">
-        <div class="title">
-            <h2>Services</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-    </div>
-    <div class="ser-description">
-        <div class="ser-des">
-            <span class="icon-circle">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </span>
-
-            <h4 class="my-3">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-        <div class="ser-des">
-            <span class="icon-circle">
-                <i class="fa-solid fa-laptop"></i>
-            </span>
-            <h4 class="my-3">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-        <div class="ser-des">
-
-            <span class="icon-circle">
-                <i class="fa-solid fa-lock"></i>
-            </span>
-
-            <h4 class="my-3">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-    </div>
-</section>
-
-<section class="portfolio" id="portfolio">
-    <div class="container">
-        <div class="title">
-            <h2>Portfolio</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-    </div>
-    <div class="content">
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
+    <section id="about">
+        <div class="container">
+            <div class="section-title">about</div>
+            <div class="section-decription">Lorem ipsum dolor sit amet consectetur.</div>
+            <div>
+                
             </div>
         </div>
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-img">
-                <img src="../case01-clone-page/image/header-bg.png">
-            </div>
-            <div class="portfolio-caption">
-                <div class="main-cap">Threads</div>
-                <div class="sub-cap">Illustration</div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</body>
 
 </html>

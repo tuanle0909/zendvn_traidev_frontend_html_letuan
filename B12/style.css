@@ -1,0 +1,40 @@
+:root {
+    --pseudo-custom-select-arrow: '\f13a';
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.custom-select {
+    background: orange;
+    color: white;
+    width: fit-content;
+    padding: 5px 10px;
+    margin: 10px auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: inherit;
+    color: inherit;
+    display: none;
+}
+
+.select-items > div {
+    border-top: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+.select-items.show {
+    display: block;
+}
