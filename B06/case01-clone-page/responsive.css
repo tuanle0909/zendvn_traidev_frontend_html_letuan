@@ -28,15 +28,52 @@
     .portfolio-item {
         width: calc(100% / 2);
     }
+    .timeline-image{
+        width: 100px;
+        height: 100px;
+    }
+    .about-timeline ul li:nth-child(odd) .timeline-image {
+        left: 111%;
+    }
+    .about-timeline ul li:nth-child(even) .timeline-image {
+        left: 11%;
+    }
+    #team .row{
+        flex-direction: column;
+        gap: 40px;
+    }
+    .team-footer p{
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    footer .row{
+        flex-direction: column ;
+        gap: 30px;
+    }
+    .social-item{
+        width: calc(100% / 2);
+    }
 }
 
 @media screen and (max-width: 768px) {
     .container {
         max-width: 540px;
     }
-
     .service-content .col-1 {
         width: 100%;
+    }
+    .service-content{
+        gap: 20px;
+    }
+    .input-form{
+        flex-direction: column;
+    }
+    .info{
+        width: 100%;
+    }
+    .message{
+        width: 100%;
+        height: 200px;
     }
 }
 
@@ -44,8 +81,7 @@
     .container {
         max-width: 100%;
     }
-
     .portfolio-item {
         width: 100%;
-    }
+    }   
 }
