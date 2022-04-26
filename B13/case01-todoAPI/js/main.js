@@ -1,11 +1,34 @@
 const API_URL = "https://625e2a626c48e8761ba603da.mockapi.io/";
+
 const nameTask = $("#input-name");
 const submit = $("#btn-submit");
 const inputLevel = $("#input-level");
 const areaListTask = $("#area-list-task");
+const btnPrev = $(".btn-prev");
+const btnNext = $(".btn-next");
+const sortDisplay = $("#sort-display");
+const inputSearch = $("#search-input");
+const btnSearch = $("#btn-search");
+let page = 1;
+const itemOfPage = 4;
+
+
 let idEdit = "";
 
 getItems();
+
+btnNext.on('click', function(){
+  page++;
+  getItems();
+})
+
+btnPrev.on('click', function(){
+  page--;
+  if (page === 1){
+    $(this).parent().addClass('disabled')
+  }
+  getItems();
+})
 
 $(document).on("click", ".btn-delete", function () {
   let id = $(this).data("id");
@@ -22,6 +45,20 @@ $(document).on("click", ".btn-edit", function () {
     inputLevel.val(data.level);
   });
 });
+
+$(document).on('click',".sort-value", function(){
+  let dataOrderBy = $(this).attr("data-order-by");
+  let dataOrderDir = $(this).attr("data-order-dir");
+  console.log(dataOrderBy, dataOrderDir);
+  sortDisplay.html(`${dataOrderBy} - ${dataOrderDir}`);
+  getItems({sortBy: dataOrderBy, order: dataOrderDir});
+})
+
+btnSearch.on('click', function(){
+  const searchString = inputSearch.val();
+  getItems({filter: searchString});
+})
+
 
 submit.on("click", function () {
   const name = nameTask.val();
@@ -75,6 +112,7 @@ function getItems() {
   });
 }
 
+
 function showLevel(level) {
   let color = "dark";
   let text = "Small";
@@ -113,3 +151,6 @@ function showItems(items) {
   });
   areaList.html(content);
 }
+
+
+

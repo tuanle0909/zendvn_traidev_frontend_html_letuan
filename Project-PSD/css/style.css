@@ -1,0 +1,82 @@
+:root {
+  --padding-container: 360px;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  max-width: 1920px;
+}
+
+.fixed{
+  position: fixed;
+}
+
+.container {
+  max-width: 1920px;
+  padding-left: var(--padding-container);
+  padding-right: var(--padding-container);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-header{
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+header {
+  overflow: hidden;
+  max-height: 1000px;
+  background-image: linear-gradient(0deg, #fbe389 0%, #f48b82 100%);
+}
+
+.opacity-bg {
+  opacity: 0.1;
+}
+
+.opacity-bg img {
+  object-fit: cover;
+}
+
+.logo {
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header-menu-items{
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-header .container{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.item:hover,
+.item:focus{
+  color: black;
+}
+
