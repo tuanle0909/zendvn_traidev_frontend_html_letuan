@@ -1,39 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mogo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Slab:wght@100;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto+Slab:wght@100;300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Slab:wght@100;300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto+Slab:wght@100;300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <nav class="nav-header fixed">
+    <nav class="nav-header fixed" id="navMenu">
         <div class="container">
-            <div class="logo">
+            <a class="logo" href="#">
                 MoGo
-            </div>
+            </a>
             <div class="header-menu">
                 <ul class="header-menu-items">
-                    <li><a class="item" href="youtube.com">about</a></li>
-                    <li><a class="item" href="service">service</a></li>
-                    <li><a class="item" href="work">work</a></li>
-                    <li><a class="item" href="blog">blog</a></li>
-                    <li><a class="item" href="contact">contact</a></li>
-                    <li><a class="item" href="about"><img src="image/icon/SHOPPING CART.svg"></a></li>
-                    <li><a class="item" href="about"><img src="image/icon/MAGNIFYING GLASS.svg"></a></li>
+                    <li><a class="item hover-underline" href="#about">about</a></li>
+                    <li><a class="item hover-underline" href="#service">service</a></li>
+                    <li><a class="item hover-underline" href="#work">work</a></li>
+                    <li><a class="item hover-underline" href="#blog">blog</a></li>
+                    <li><a class="item hover-underline" href="#contact">contact</a></li>
+                    <li><a class="item hover-underline" href="#"><img src="image/icon/SHOPPING CART.png.png"></a></li>
+                    <li><a class="item hover-underline" href="#"><img src="image/icon/MAGNIFYING GLASS.png.png"></a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     <header>
-        <div class="opacity-bg">
-            <img src="image/Untitled-1.png">
+        <div class="img"></div>
+        <div class="overlay">
+        </div>
+        <div class="banner">
+            <div class="title">
+                <div class="sub-title">
+                    <p>Creative Template</p>
+                </div>
+                <div class="main-title">
+                    <p>welcome to Mogo</p>
+                </div>
+                <hr class="line">
+                <a href="#" class="button">
+                    learn more
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="slider">
+                <a class="slider-item">
+                    01 intro
+                </a>
+                <a class="slider-item">
+                    02 work
+                </a>
+                <a class="slider-item">
+                    03 about
+                </a>
+                <a class="slider-item">
+                    04 contacts
+                </a>
+            </div>
         </div>
     </header>
+    <section id="about">
+        <div class="container">
+            <div class="heading">
+                <div class="sub-heading">What we do</div>
+                <div class="main-heading">story about us</div>
+                <hr class="line">
+            </div>
+            <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex mollitia totam fugit?
+                Autem corporis numquam aliquam voluptatem repellendus velit quia laborum ducimus aut ipsa! Minus placeat
+                fugiat quisquam ratione illo ducimus pariatur, consectetur nobis enim autem, dolore quas harum maiores!
+            </div>
+            <div class="row">
+                <div class="item-container">
+                    <a href="#" class="about-item">
+                        <div class="bg-hover"></div>
+                        <img src="/Project-PSD/image/about-image.png" class="about-image">
+                        <div class="about-image-hover">
+                            <div class="icon">
+                                <img src="image/icon/USERS.png">
+                                <p>super team</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-container">
+                    <a href="#" class="about-item">
+                        <div class="bg-hover"></div>
+                        <img src="/Project-PSD/image/about-image.png" class="about-image">
+                        <div class="about-image-hover">
+                            <div class="icon">
+                                <img src="image/icon/USERS.png">
+                                <p>super team</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-container">
+                    <a href="#" class="about-item">
+                        <div class="bg-hover"></div>
+                        <img src="/Project-PSD/image/about-image.png" class="about-image">
+                        <div class="about-image-hover">
+                            <div class="icon">
+                                <img src="image/icon/USERS.png">
+                                <p>super team</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div id="aboutFact">
+        <div class="container">
+            <div class="fact-item">
+                <div class="fact-container">
+                    <div class="fact-number">42</div>
+                    <div class="fact-text">web design project</div>
+                </div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-container">
+                    <div class="fact-number">42</div>
+                    <div class="fact-text">web design project</div>
+                </div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-container">
+                    <div class="fact-number">42</div>
+                    <div class="fact-text">web design project</div>
+                </div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-container">
+                    <div class="fact-number">42</div>
+                    <div class="fact-text">web design project</div>
+                </div>
+            </div>
+            <div class="fact-item">
+                <div class="fact-container">
+                    <div class="fact-number">42</div>
+                    <div class="fact-text">web design project</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="service">
+        <div class="container">
+            <div class="heading">
+                <div class="sub-heading">We work with</div>
+                <div class="main-heading">amazing serviecs</div>
+                <hr class="line">
+            </div>
+            <div class="service-items top">
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <img src="image/icon/ALARM.png">
+                    </div>
+                    <div class="service-item-description">
+                        <p class="desc-main">photography</p>
+                        <p class="desc-sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, corrupti.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <img src="image/icon/ALARM.png">
+                    </div>
+                    <div class="service-item-description">
+                        <p class="desc-main">photography</p>
+                        <p class="desc-sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, corrupti.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <img src="image/icon/ALARM.png">
+                    </div>
+                    <div class="service-item-description">
+                        <p class="desc-main">photography</p>
+                        <p class="desc-sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, corrupti.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-items bottom">
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <img src="image/icon/ALARM.png">
+                    </div>
+                    <div class="service-item-description">
+                        <p class="desc-main">photography</p>
+                        <p class="desc-sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, corrupti.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <img src="image/icon/ALARM.png">
+                    </div>
+                    <div class="service-item-description">
+                        <p class="desc-main">photography</p>
+                        <p class="desc-sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, corrupti.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <img src="image/icon/ALARM.png">
+                    </div>
+                    <div class="service-item-description">
+                        <p class="desc-main">photography</p>
+                        <p class="desc-sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, corrupti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="feature">
+        <div class="container">
+            <div class="heading">
+                <div class="sub-heading">For all devices</div>
+                <div class="main-heading">unique design</div>
+                <hr class="line">
+            </div>
+                <img class="ipad" src="image/display bg 768x1024.png">
+                <img class="iphone" src="image/White.png">
+        </div>
+    </section>
     <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 :root {
   --padding-container: 360px;
+  --fact-item-height: 270px;
 }
 
 *,
@@ -15,7 +16,7 @@ body {
   max-width: 1920px;
 }
 
-.fixed{
+.fixed {
   position: fixed;
 }
 
@@ -23,37 +24,27 @@ body {
   max-width: 1920px;
   padding-left: var(--padding-container);
   padding-right: var(--padding-container);
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.nav-header{
+.nav-header {
   width: 100%;
-
+  z-index: 1;
+  transition: all 0.2s linear;
 }
 
-header {
-  overflow: hidden;
-  max-height: 1000px;
-  background-image: linear-gradient(0deg, #fbe389 0%, #f48b82 100%);
-}
-
-.opacity-bg {
-  opacity: 0.1;
-}
-
-.opacity-bg img {
-  object-fit: cover;
+.scroll-active {
+  background-color: #f48b82;
 }
 
 .logo {
   font-size: 30px;
-  color: #ffffff;
+  color: white;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
+  text-decoration: none;
 }
 
-.header-menu-items{
+.header-menu-items {
   font-size: 14px;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
@@ -61,11 +52,11 @@ header {
   gap: 40px;
 }
 
-.header-menu-items li{
+.header-menu-items li {
   list-style: none;
 }
 
-.nav-header .container{
+.nav-header .container {
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -73,10 +64,378 @@ header {
   align-items: center;
 }
 
-.item{
+.item {
+  position: relative;
   display: inline-block;
   text-decoration: none;
   color: white;
+  transition: all 0.5 linear;
+}
+
+.item:hover {
+  color: #fbe389;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  background-color: #fbe389;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -12px;
+  cursor: pointer;
+}
+
+.hover-underline::after {
+  transform: scale(0, 1);
+  transition: transform 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scale(1, 1);
+}
+
+header {
+  position: relative;
+  height: 1000px;
+}
+
+header .img {
+  width: 100%;
+  height: 1000px;
+  background: url(/Project-PSD/image/Untitled-1.png);
+  position: absolute;
+  opacity: 1;
+}
+
+header .overlay {
+  height: 1000px;
+  width: 100%;
+  position: absolute;
+  opacity: 0.89;
+  background: linear-gradient(0deg, #fbe389 0%, #f48b82 100%);
+}
+
+.banner {
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1000px;
+  position: absolute;
+}
+
+.title {
+  margin: 0 auto;
+  width: 800px;
+  display: flex;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.sub-title {
+  font-size: 72px;
+  color: white;
+  font-weight: 400;
+  font-family: "Kaushan Script", sans-serif;
+  text-align: center;
+  padding-bottom: 45px;
+}
+
+.main-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 130px;
+  line-height: 140px;
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding-bottom: 43px;
+}
+
+.line {
+  margin: 0 auto;
+  border: 3px solid white;
+  width: 60px;
+}
+
+.title .line {
+  margin-bottom: 50px;
+}
+
+.button {
+  background-color: #ffffff00;
+  margin: 0 auto;
+  text-decoration: none;
+  padding: 8px 32px 8px 32px;
+  border: 3px solid white;
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: white;
+  color: #eec888;
+}
+
+.slider {
+  position: absolute;
+  display: flex;
+  gap: 30px;
+  bottom: 28px;
+}
+
+.slider-item {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  padding-top: 25px;
+  border-top: 3px solid white;
+  width: 280px;
+  height: 45px;
+  text-transform: uppercase;
+}
+
+section {
+  padding-top: 112px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.sub-heading {
+  font-size: 24px;
+  color: black;
+  font-weight: 400;
+  font-family: "Kaushan Script", sans-serif;
+  padding-bottom: 24px;
+}
+
+.main-heading {
+  font-size: 30px;
+  color: black;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.heading .line {
+  margin-top: 47px;
+  border: 3px solid red;
+  margin-bottom: 47px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+  font-weight: 400;
+  font-family: "Roboto";
+  text-align: center;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  width: calc(100% / 3);
+  gap: 30px;
+}
+
+#about .row {
+  padding-top: 95px;
+  padding-bottom: 110px;
+}
+
+.about-item {
+  position: relative;
+  display: block;
+  width: 390px;
+  height: 260px;
+}
+
+.about-image {
+  position: absolute;
+  display: block;
+  width: 380px;
+  height: 250px;
+  bottom: 0;
+  right: 0;
+  transition: all 0.9s ease-in;
+}
+
+.bg-hover {
+  position: absolute;
+  width: 380px;
+  height: 250px;
+  background-color: #95e1d3;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.2s ease;
+}
+
+.about-image-hover {
+  position: absolute;
+  width: 380px;
+  height: 250px;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, #fbe389 0%, #f48b82 100%);
+  transition: opacity 0.2s ease-in;
+}
+
+.icon {
+  position: absolute;
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-item:hover .bg-hover {
+  opacity: 1;
+}
+
+.about-item:hover .about-image-hover {
+  opacity: 0.95;
+}
+
+.about-item:hover .about-image {
+  top: 0;
+  left: 0;
+}
+
+#aboutFact {
+  background-color: #95e1d3;
+  width: 100%;
+}
+
+#aboutFact .container {
+  display: flex;
+}
+
+.fact-item {
+  position: relative;
+  width: calc(100% / 5);
+  height: var(--fact-item-height);
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.fact-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fact-number {
+  font-size: 72px;
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.fact-text {
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#service{
+  padding-bottom: 123px;
+}
+
+.service-items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 120px;
+}
+
+.top {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.bottom {
+  padding-top: 50px;
+}
+
+.service-item {
+  display: flex;
+  width: 363px;
+  height: 69px;
+  justify-content: space-between;
+}
+
+.service-item-icon{
+  width: 90px;
+  text-align: center;
+}
+
+.service-item img {
+  width: 32px;
+  height: 30px;
 }
 
 
+.desc-main {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+}
+
+.desc-sub {
+  width: 290px;
+  height: 81px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999999;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
+#feature{
+  background-image: url(/Project-PSD/image/feature.png) ;
+  width: 100%;
+  height: 850px;
+}
+
+#feature .heading{
+  position: absolute;
+}
+
+#feature .container{
+  position: relative;
+}
+
+.ipad{
+  bottom: 0;
+  position: absolute;
+}
+
+.iphone{
+  position: absolute;
+}
