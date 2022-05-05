@@ -97,14 +97,20 @@
             $('.menu-mobile').slideToggle();
         });
 
-        var arrowMainMenu = $('.arrow-main-menu-m');
+        // var arrowMainMenu = $('.arrow-main-menu-m');
 
-        for(var i=0; i<arrowMainMenu.length; i++){
-            $(arrowMainMenu[i]).on('click', function(){
-                $(this).parent().find('.sub-menu-m').slideToggle();
-                $(this).toggleClass('turn-arrow-main-menu-m');
-            })
-        }
+        // for(var i=0; i<arrowMainMenu.length; i++){
+        //     $(arrowMainMenu[i]).on('click', function(){
+        //         $(this).parent().find('.sub-menu-m').slideToggle();
+        //         $(this).toggleClass('turn-arrow-main-menu-m');
+        //     })
+        // }
+
+        $(document).on('click', '.arrow-main-menu-m', function(){
+            console.log(123);
+            $(this).parent().find('.sub-menu-m').slideToggle();
+            $(this).toggleClass('turn-arrow-main-menu-m');
+        })
 
         $(window).on('resize',function(){
             if($(window).width() >= 992){

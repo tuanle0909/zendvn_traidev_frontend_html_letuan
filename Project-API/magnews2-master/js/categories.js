@@ -112,6 +112,7 @@ $(document).ready(function () {
     data: { offset: 0, limit: 10 },
     dataType: "json",
     success: function (response) {
+      console.log(response);
       let content = "";
       response.forEach(function (ele) {
         content += `
