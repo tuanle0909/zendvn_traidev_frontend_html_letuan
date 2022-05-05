@@ -270,12 +270,6 @@ a.left-topbar-item:hover {
 /*==================================================================
 [ Logo ]*/
 .wrap-logo {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 125px;
   padding-top: 25px;
@@ -284,13 +278,13 @@ a.left-topbar-item:hover {
 
 /*---------------------------------------------*/
 .logo {
+  margin: 0 auto;
   width: 25%;
   height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
-  display: flex;
   justify-content: flex-start;
   align-items: center;
 }

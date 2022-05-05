@@ -1,9 +1,48 @@
 $(document).ready(function () {
   const API_URL = "http://apiforlearning.zendvn.com/api/";
   const API_CATEGORY = API_URL + "categories_news";
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const stringId = urlParams.getAll("id").toString();
+  const breadcrumb = $('#breadCrumb');
+  const pageheading = $('#pageHeading');
+  const title = $('#title')
   let categories = $("#zvn-menu-desktop");
   let categoriesMobile = $("#zvn-menu-mobile");
   let articles = $("#articles");
+
+  $.ajax({
+    type: "GET",
+    url: API_CATEGORY + `/${stringId}`,
+    dataType: "json",
+    success: function (response) {
+      let content = '';
+      content += `
+      <a href="index.html" class="breadcrumb-item f1-s-3 cl9">
+					Trang chủ
+				</a>
+				<span class="breadcrumb-item f1-s-3 cl9">
+					${response.name}
+				</span>
+      `
+      let pageHeading ='';
+      pageHeading += `
+      <h2 class="f1-l-1 cl2">
+			${response.name}
+		  </h2>
+      `
+
+      let webtitle = '';
+      webtitle += `
+      <title>${response.name}</title>
+      `
+      
+      title.html(webtitle);
+      pageheading.html(pageHeading);
+      breadcrumb.html(content);
+    }
+  });
+
   $.ajax({
     type: "GET",
     url: API_CATEGORY,
@@ -67,52 +106,36 @@ $(document).ready(function () {
     },
   });
 
-  $(document).on("click", ".category", function () {
-    var getLink = $(this).attr("href");
-    var id = getLink.substr(getLink.indexOf("=") + 1);
-    $.ajax({
-      type: "GET",
-      url: API_CATEGORY + `/${id}` + `/articles`,
-      data: { offset: 0, limit: 10 },
-      dataType: "json",
-      success: function (response) {
-        let content = "";
-        response.forEach(function (ele) {
-          content += `
+  $.ajax({
+    type: "GET",
+    url: API_CATEGORY + `/${stringId}` + "/articles",
+    data: { offset: 0, limit: 10 },
+    dataType: "json",
+    success: function (response) {
+      let content = "";
+      response.forEach(function (ele) {
+        content += `
+        <div class="col-sm-6 p-r-25 p-r-15-sr991">
           <div class="m-b-45">
-            <a href="#" class="wrap-pic-w hov1 trans-03">
-            <img src="${ele.thumb}" alt="IMG">
-            </a>
-
-            <div class="p-t-16">
-              <h5 class="p-b-5">
-                <a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-                ${ele.title} 
-                </a>
-              </h5>
-
-              <span class="cl8">
-                <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                  by John Alvarado
-                </a>
-
-                <span class="f1-s-3 m-rl-3">
-                -
-                </span>
-
-              <span class="f1-s-3">
-                Feb 18
-              </span>
-            </span>
-          </div>
+							<a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
+								<img src="${ele.thumb}">
+							</a>
+							<div class="p-t-16">
+								<h5 class="p-b-5">
+									<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
+										${ele.title}
+									</a>
+								</h5>
+									<span class="f1-s-3">
+										${ele.publish_date}
+									</span>
+								</div>
+					</div>
         </div>
-          `;
-        });
-        content.html(articles);
-      },
-      error: function (request) {
-        alert(request.responseText);
-      },
-    });
+        `
+      })
+      articles.html(content);
+    },
   });
+
 });
