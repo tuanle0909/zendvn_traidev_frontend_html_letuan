@@ -11,6 +11,11 @@ $(document).ready(function () {
   let categoriesMobile = $("#zvn-menu-mobile");
   let articles = $("#articles");
 
+  $('#btn-search').on('click', function () {
+    let value = $('#search').val();
+    window.location.href = "searchresults.html?keyword=" + value;
+  })
+
   $.ajax({
     type: "GET",
     url: API_CATEGORY + `/${stringId}`,
@@ -52,7 +57,7 @@ $(document).ready(function () {
       let content = "";
       let oMenu = "";
       response.forEach(function (ele, index) {
-        let menuItem = `<li><a href="category.html?id=${ele.id}" class="category">${ele.name}</a></li>`;
+        let menuItem = `<li><a href="category.html?id=${ele.id}" class="disable-after">${ele.name}</a></li>`;
         if (index < 4) {
           content += menuItem;
         } else {
@@ -60,18 +65,12 @@ $(document).ready(function () {
         }
       });
       if (oMenu) {
-        content += `
-              <li>
-                  <a href="#">Danh mục khác</a>
-                  <ul class="sub-menu">
-                      ${oMenu}
-                  </ul>
-              </li>
-          `;
+        content += ` <li><a href="#">Danh mục khác</a> <ul class="sub-menu">${oMenu}</ul></li>`;
       }
       categories.html(content);
     },
   });
+
 
   $.ajax({
     type: "GET",
@@ -123,7 +122,7 @@ $(document).ready(function () {
 							</a>
 							<div class="p-t-16">
 								<h5 class="p-b-5">
-									<a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
+									<a href="detail.html?id=${ele.id}" class="f1-m-3 cl2 hov-cl10 trans-03">
 										${ele.title}
 									</a>
 								</h5>
@@ -137,6 +136,11 @@ $(document).ready(function () {
       })
       articles.html(content);
     },
+  });
+
+  $(document).on("click", ".arrow-main-menu-m", function () {
+    $(this).parent().find(".sub-menu-m").slideToggle();
+    $(this).toggleClass("turn-arrow-main-menu-m");
   });
 
 });

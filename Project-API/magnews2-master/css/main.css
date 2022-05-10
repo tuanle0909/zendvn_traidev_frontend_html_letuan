@@ -412,7 +412,7 @@ a.left-topbar-item:hover {
   -webkit-transition: all 0.3s;
 }
 
-.main-menu > li > a::before {
+.main-menu > li > .disable-after::before {
   content: "";
   display: block;
   position: absolute;
@@ -431,6 +431,10 @@ a.left-topbar-item:hover {
   -ms-transform: scaleX(0);
   -o-transform: scaleX(0);
   transform: scaleX(0);
+}
+
+.main-menu > li > .disable-after::after{
+  content: '';
 }
 
 .main-menu > li > a::after {
@@ -537,6 +541,11 @@ li.respon-sub-menu > .sub-menu .sub-menu {
   -o-transition: all 0.3s;
   -moz-transition: all 0.3s;
 }
+
+#get-gold{
+  padding-right: 10px;
+}  
+
 
 @media (max-width: 1199px) {
   .sub-menu {
@@ -834,6 +843,11 @@ li.respon-sub-menu > .sub-menu .sub-menu {
   text-decoration: none;
 }
 
+.gold-content{
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid black;
+}
 
 
 /*---------------------------------------------*/

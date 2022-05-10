@@ -26,6 +26,30 @@ $(document).ready(function () {
         let content = "";
         let oMenu = "";
         response.forEach(function (ele, index) {
+          let menuItem = `<li><a href="category.html?id=${ele.id}" class="disable-after">${ele.name}</a></li>`;
+          if (index < 4) {
+            content += menuItem;
+          } else {
+            oMenu += menuItem;
+          }
+        });
+        if (oMenu) {
+          content += ` <li><a href="#">Danh mục khác</a> <ul class="sub-menu">${oMenu}</ul></li>`;
+        }
+        categories.html(content);
+      },
+    });
+  
+
+    $.ajax({
+      type: "GET",
+      url: API_CATEGORY,
+      data: { offset: 0, limit: 20 },
+      dataType: "json",
+      success: function (response) {
+        let content = "";
+        let oMenu = "";
+        response.forEach(function (ele, index) {
           let menuItem = `<li><a href="category.html?id=${ele.id}" class="category">${ele.name}</a></li>`;
           if (index < 4) {
             content += menuItem;
@@ -37,13 +61,16 @@ $(document).ready(function () {
           content += `
                 <li>
                     <a href="#">Danh mục khác</a>
-                    <ul class="sub-menu">
+                    <ul class="sub-menu-m">
                         ${oMenu}
                     </ul>
+                    <span class="arrow-main-menu-m">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </span>
                 </li>
             `;
         }
-        categories.html(content);
+        categoriesMobile.html(content);
       },
     });
 
@@ -93,5 +120,10 @@ $(document).ready(function () {
                 },
             });
         },
+    });
+
+    $(document).on("click", ".arrow-main-menu-m", function () {
+      $(this).parent().find(".sub-menu-m").slideToggle();
+      $(this).toggleClass("turn-arrow-main-menu-m");
     });
 });
