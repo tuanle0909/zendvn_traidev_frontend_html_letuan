@@ -11,6 +11,12 @@ $(document).ready(function () {
   let categories = $("#zvn-menu-desktop");
   let categoriesMobile = $("#zvn-menu-mobile");
   let title = $('#title')
+  const sidebarCate = $('#sidebar-cate')
+
+  $(document).on('click', '.m-all-5', function(){
+    let text = $(this).text();
+    window.location.href = "searchresults.html?keyword=" + text;
+  })
 
   $.ajax({
     type: "GET",
@@ -59,6 +65,7 @@ $(document).ready(function () {
     success: function (response) {
       let content = "";
       let oMenu = "";
+      let sMenu = '';
       response.forEach(function (ele, index) {
         let menuItem = `<li><a href="category.html?id=${ele.id}" class="disable-after">${ele.name}</a></li>`;
         if (index < 4) {
@@ -66,6 +73,14 @@ $(document).ready(function () {
         } else {
           oMenu += menuItem;
         }
+        sMenu += `
+                <li class="how-bor3 p-rl-4">
+									<a href="category.html?id=${ele.id}" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+										${ele.name}
+									</a>
+								</li>
+          `
+          sidebarCate.html(sMenu);
       });
       if (oMenu) {
         content += ` <li><a href="#">Danh mục khác</a> <ul class="sub-menu">${oMenu}</ul></li>`;
