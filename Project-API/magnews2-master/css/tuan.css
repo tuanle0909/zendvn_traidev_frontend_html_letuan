@@ -14,15 +14,29 @@ html{
     margin-right: 12px;
     font-size: 50px;
     float: right;
-    color: gray;
-    opacity: 0.7;
+    color: rgb(206, 206, 206);
 }
 
 .icon-wishlist:hover{
-    opacity: 1;
     color: red;
 }
 
 .active-icon-fav{
     color: red;
+}
+
+.btn-like-article{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+}
+
+.cate{
+    margin-right: 22px;
+}
+
+.heart-detail{
+    top: 20px;
+    left: 0;
 }

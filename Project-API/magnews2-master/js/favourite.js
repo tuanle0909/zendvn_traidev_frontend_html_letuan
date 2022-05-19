@@ -72,7 +72,9 @@ $(document).ready(function () {
         url: API_ARTICLES + `/${element}`,
         dataType: "json",
         success: function (response) {
+          let isActive = favItem.indexOf(response.id) != -1 ? 'active-icon-fav' : '';
           content += `<div key=${index} class="col-sm-6 p-r-25 p-r-15-sr991">
+                        <button data-id="${response.id}" class="btn-like-article cate"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${response.id}"></i></button>
                         <div class="m-b-45">
                           <a href="detail.html?id=${response.id}" class="wrap-pic-w hov1 trans-03">
                             <img src="${response.thumb}">

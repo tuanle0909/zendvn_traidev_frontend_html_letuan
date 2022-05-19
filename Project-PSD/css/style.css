@@ -3,6 +3,10 @@
   --fact-item-height: 270px;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 *,
 *::after,
 *::before {

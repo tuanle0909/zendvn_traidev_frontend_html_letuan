@@ -10,7 +10,22 @@ $(document).ready(function () {
     const title = $('#title');
     const categories = $("#zvn-menu-desktop");
     const categoriesMobile = $("#zvn-menu-mobile");
-    const sidebarCate = $('#sidebar-cate')
+    const sidebarCate = $('#sidebar-cate');
+    const inputCmt = $('.cmt');
+    const inputCmtEmail = $('.cmt-email');
+    const btnCmt = $('.btn-cmt');
+    let comments = loadCmt();
+
+    let favItem = JSON.parse(localStorage.getItem('FAV_LIST')) || [];
+    console.log(favItem);
+
+    function loadCmt (){
+      return JSON.parse(localStorage.getItem('COMMENTS')) || [];
+    }
+
+    function saveCmt(data) {
+      localStorage.setItem("COMMENTS", JSON.stringify(data));
+    }
 
     $('#btn-search').on('click', function () {
       let value = $('#search').val();
@@ -51,6 +66,7 @@ $(document).ready(function () {
         if (oMenu) {
           content += ` <li><a href="#">Danh mục khác</a> <ul class="sub-menu">${oMenu}</ul></li>`;
         }
+        content += `<li><a href="favourite.html" class="disable-after">Danh sách yêu thích</a></li>`;
         categories.html(content);
       },
     });
@@ -100,6 +116,7 @@ $(document).ready(function () {
           );
         },
         success: function (ele) {
+            let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
             idCate = ele.category_id;
             // Page Title
             title.html(`<title>${ele.title}</title>`);
@@ -108,7 +125,9 @@ $(document).ready(function () {
             let content = `
             <h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
                 ${ele.title}
+                <button data-id="${ele.id}" class="btn-like-article heart-detail"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
             </h3>
+            
         
             <div class="flex-wr-s-s p-b-40">
                 <span class="f1-s-3 cl8 m-r-15">
@@ -146,4 +165,36 @@ $(document).ready(function () {
       $(this).parent().find(".sub-menu-m").slideToggle();
       $(this).toggleClass("turn-arrow-main-menu-m");
     });
+
+    $(document).on('click', '.btn-like-article', function () {
+      let id = $(this).data('id');
+      console.log(id, favItem);
+      if (favItem.indexOf(id) != -1) {
+          $(this).find(`#heartWish${id}`).removeClass('active-icon-fav');
+          favItem = jQuery.grep(favItem, function (value) {
+              return value != id;
+          });
+      } else {
+          $(this).find(`#heartWish${id}`).addClass('active-icon-fav');
+          favItem.push(id);
+      }
+      localStorage.setItem('FAV_LIST', JSON.stringify(favItem));
+    });
+
+    btnCmt.on('click', function(){
+      let cmtValue = inputCmt.val();
+      let emailValue = inputCmtEmail.val();
+      let infoCmt = {
+        "email": emailValue,
+        "content": cmtValue,
+      };
+      
+      let comment = [infoCmt];
+      let newCmt = {
+        id: stringId,
+        comment,
+      };
+      saveCmt(newCmt)
+      console.log(newCmt);
+    })
 });

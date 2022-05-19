@@ -19,12 +19,7 @@ $(document).ready(function () {
   let goldContent = $('#get-gold');
   let coinContent = $('#coin-content');
 
-  let arr = [
-    
-  ];
-
-  console.log(arr.findIndex(fruit => fruit.article_id === 2));
-
+  let favItem = JSON.parse(localStorage.getItem('FAV_LIST')) || [];
   getItems();
 
   
@@ -83,19 +78,20 @@ $(document).ready(function () {
                 },
                 success: function (feature) {
                     feature.forEach(function (ele) {
+                      let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
                         article += `
-            <div class="bg-img1 size-a-3 how1 pos-relative"
-						style="background-image: url(${ele.thumb});">
-						<a href="detail.html?id=${ele.id}" class="dis-block how1-child1 trans-03"></a>
-
-						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-							<h3 class="how1-child2 m-t-14 m-b-10">
-								<a href="detail.html?id=${ele.id}" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
-									${ele.title}
-								</a>
-							</h3>
-						</div>
-					</div>
+                      <div class="bg-img1 size-a-3 how1 pos-relative"
+                      style="background-image: url(${ele.thumb});">
+                      <a href="detail.html?id=${ele.id}" class="dis-block how1-child1 trans-03"></a>
+                      <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
+                        <h3 class="how1-child2 m-t-14 m-b-10">
+                        <button data-id="${ele.id}" class="btn-like-article"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+                          <a href="detail.html?id=${ele.id}" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
+                            ${ele.title}
+                          </a>
+                        </h3>
+                      </div>
+                    </div>
             `;
                     });
                     feature1stArticle.html(article);
@@ -112,6 +108,7 @@ $(document).ready(function () {
                 },
                 success: function (subfeature) {
                     subfeature.forEach(function (ele) {
+                      let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
                         subArticles += `
             <div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-14 how1 pos-relative"
@@ -120,6 +117,7 @@ $(document).ready(function () {
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<h3 class="how1-child2 m-t-14">
+                  <button data-id="${ele.id}" class="btn-like-article"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
 										<a href="detail.html?id=${ele.id}"
 											class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 											${ele.title}
@@ -159,6 +157,7 @@ $(document).ready(function () {
             if (oMenu) {
                 content += ` <li><a href="#">Danh mục khác</a> <ul class="sub-menu">${oMenu}</ul></li>`;
             }
+            content += `<li><a href="favourite.html" class="disable-after">Danh sách yêu thích</a></li>`;
             categories.html(content);
         },
     });
@@ -203,6 +202,10 @@ $(document).ready(function () {
         success: function (response) {
             let content = '';
             response.forEach(function (ele) {
+              let price = parseFloat(ele.buy);
+                let priceRound = price.toFixed(2);
+                let priceSell = parseFloat(ele.sell);
+                let priceCellRound = priceSell.toFixed(2);
                 content += `
 							<ul class="p-t-15">
 								<li class="flex-wr-sb-c p-b-20">
@@ -214,11 +217,11 @@ $(document).ready(function () {
 
                     <div class="gold-content">
                       <span class="f1-s-8 cl3 p-r-20">
-                        Mua vào: ${ele.buy}
+                        Mua vào: ${priceRound}
                       </span>
 
                       <span class="f1-s-8 cl3 p-r-20">
-                        Bán ra: ${ele.sell}
+                        Bán ra: ${priceCellRound}
                       </span>
                     </div>
 									</div>  
@@ -237,7 +240,10 @@ $(document).ready(function () {
         success: function alo(response) {
             let content = '';
             response.forEach(function (ele) {
-                function parse() {}
+              let price = parseFloat(ele.price);
+              let priceChange = parseFloat(ele.percent_change_24h);
+              let priceChangeRound = priceChange.toFixed(2);
+              let priceRound = price.toFixed(2);
                 content += `
         <li class="flex-wr-sb-c p-b-20">
 									<div class="size-w-3 flex-wr-sb-c">
@@ -248,13 +254,10 @@ $(document).ready(function () {
                   
                   <div>
                     <p class="f1-s-8 cl3 p-r-20">
-                      Giá: ${ele.price}
+                      Giá: ${priceRound}
                     </p>
                     <p class="f1-s-8 cl3 p-r-20">
-                      Tỉ giá thay đổi trong 24 giờ: ${ele.percent_change_24h}%
-                    </p>
-                    <p class="f1-s-8 cl3 p-r-20">
-                      Tỉ giá thay đổi trong 1 giờ: ${ele.percent_change_1h}%
+                      Tỉ giá thay đổi trong 24 giờ: ${priceChangeRound}%
                     </p>
                   </div>
 				</li>
@@ -281,8 +284,10 @@ $(document).ready(function () {
         success: function (response) {
           let content = '';
           response.forEach(function (ele) {
+              let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
               content += `
                 <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                
                   <div class="m-b-45">
                       <a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
                         <img src="${ele.thumb}">
@@ -305,4 +310,24 @@ $(document).ready(function () {
         },
       });
     }
+
+    $(document).on('click', '.arrow-main-menu-m', function () {
+      $(this).parent().find('.sub-menu-m').slideToggle();
+      $(this).toggleClass('turn-arrow-main-menu-m');
+  });
+
+  $(document).on('click', '.btn-like-article', function () {
+      let id = $(this).data('id');
+      console.log(id, favItem);
+      if (favItem.indexOf(id) != -1) {
+          $(this).find(`#heartWish${id}`).removeClass('active-icon-fav');
+          favItem = jQuery.grep(favItem, function (value) {
+              return value != id;
+          });
+      } else {
+          $(this).find(`#heartWish${id}`).addClass('active-icon-fav');
+          favItem.push(id);
+      }
+      localStorage.setItem('FAV_LIST', JSON.stringify(favItem));
+  });
 });

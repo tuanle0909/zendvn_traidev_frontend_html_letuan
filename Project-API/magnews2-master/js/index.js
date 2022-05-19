@@ -86,23 +86,25 @@ $(document).ready(function () {
                     url: API_CATEGORY + `/${idCategory}`,
                     dataType: 'json',
                     success: function (response) {
+                        let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
                         content += `
-              <div class="col-md-4 p-rl-1 p-b-2">
-                <div class="bg-img1 size-a-11 how1 pos-relative" style="background-image: url(${ele.thumb});">
-                  <a href="detail.html?id=${ele.id}" class="dis-block how1-child1 trans-03"></a>
-                  <div class="flex-col-e-s s-full p-rl-25 p-tb-18">
-                    <a href="category.html?id=${response.id}" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-                      ${response.name}
-                    </a>
-                    <h3 class="how1-child2 m-t-14 m-b-10">
-                      <a href="detail.html?id=${ele.id}" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
-                        ${ele.title}
-                      </a>
-                    </h3>
-                </div>
-                </div>
-              </div>
-              `;
+                                  <div class="col-md-4 p-rl-1 p-b-2">
+                                  <button data-id="${ele.id}" class="btn-like-article head"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+                                    <div class="bg-img1 size-a-11 how1 bg-image" style="background-image: url(${ele.thumb});">
+                                      <a href="detail.html?id=${ele.id}" class="dis-block how1-child1 trans-03"></a>
+                                      <div class="flex-col-e-s s-full p-rl-25 p-tb-18">
+                                        <a href="category.html?id=${response.id}" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                                          ${response.name}
+                                        </a>
+                                        <h3 class="how1-child2 m-t-14 m-b-10">
+                                          <a href="detail.html?id=${ele.id}" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
+                                            ${ele.title}
+                                          </a>
+                                        </h3>
+                                    </div>
+                                    </div>
+                                  </div>
+                                  `;
                         newestBlog.html(content);
                     },
                 });
@@ -126,7 +128,7 @@ $(document).ready(function () {
                           <a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
                             <img src="${ele.thumb}" alt="IMG">
                           </a>
-                          <a data-id="${ele.id}" class="btn-like-article"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></a>
+                          <button data-id="${ele.id}" class="btn-like-article"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
                         <div class="p-t-16">
                           <h5 class="p-b-5">
                             <a href="detail.html?id=${ele.id}" class="f1-m-3 cl2 hov-cl10 trans-03">
@@ -155,6 +157,8 @@ $(document).ready(function () {
             response.forEach(function (ele) {
                 let price = parseFloat(ele.buy);
                 let priceRound = price.toFixed(2);
+                let priceSell = parseFloat(ele.sell);
+                let priceCellRound = priceSell.toFixed(2);
                 content += `
 							<ul class="p-t-15">
 								<li class="flex-wr-sb-c p-b-20">
@@ -170,7 +174,7 @@ $(document).ready(function () {
                       </span>
 
                       <span class="f1-s-8 cl3 p-r-20">
-                        Bán ra: ${ele.sell}
+                        Bán ra: ${priceCellRound}
                       </span>
                     </div>
 									</div>  
@@ -189,7 +193,10 @@ $(document).ready(function () {
         success: function alo(response) {
             let content = '';
             response.forEach(function (ele) {
-                function parse() {}
+              let price = parseFloat(ele.price);
+              let priceChange = parseFloat(ele.percent_change_24h);
+              let priceChangeRound = priceChange.toFixed(2);
+              let priceRound = price.toFixed(2);
                 content += `
         <li class="flex-wr-sb-c p-b-20">
 									<div class="size-w-3 flex-wr-sb-c">
@@ -200,13 +207,10 @@ $(document).ready(function () {
                   
                   <div>
                     <p class="f1-s-8 cl3 p-r-20">
-                      Giá: ${ele.price}
+                      Giá: ${priceRound}
                     </p>
                     <p class="f1-s-8 cl3 p-r-20">
-                      Tỉ giá thay đổi trong 24 giờ: ${ele.percent_change_24h}%
-                    </p>
-                    <p class="f1-s-8 cl3 p-r-20">
-                      Tỉ giá thay đổi trong 1 giờ: ${ele.percent_change_1h}%
+                      Tỉ giá thay đổi trong 24 giờ: ${priceChangeRound}%
                     </p>
                   </div>
 				</li>
