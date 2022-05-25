@@ -16,7 +16,7 @@ $(document).ready(function () {
   let subFeature = $('#sub-articles');
   let offset = 5;
   let itemOfPage = 10;
-  let goldContent = $('#get-gold');
+  let goldContent = $('#gold-content');
   let coinContent = $('#coin-content');
 
   let favItem = JSON.parse(localStorage.getItem('FAV_LIST')) || [];
@@ -146,6 +146,7 @@ $(document).ready(function () {
         success: function (response) {
             let content = '';
             let oMenu = '';
+            let allMenu = ''
             response.forEach(function (ele, index) {
                 let menuItem = `<li><a href="category.html?id=${ele.id}" class="disable-after">${ele.name}</a></li>`;
                 if (index < 4) {
@@ -206,27 +207,13 @@ $(document).ready(function () {
                 let priceRound = price.toFixed(2);
                 let priceSell = parseFloat(ele.sell);
                 let priceCellRound = priceSell.toFixed(2);
-                content += `
-							<ul class="p-t-15">
-								<li class="flex-wr-sb-c p-b-20">
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<p href="#" class="f1-s-9 text-uppercase cl3">
-											${ele.type}
-										</p>
-
-                    <div class="gold-content">
-                      <span class="f1-s-8 cl3 p-r-20">
-                        Mua vào: ${priceRound}
-                      </span>
-
-                      <span class="f1-s-8 cl3 p-r-20">
-                        Bán ra: ${priceCellRound}
-                      </span>
-                    </div>
-									</div>  
-								</li>
-							</ul>
+                 content += `
+                 <div class="gold-info">
+                    <div class="gold-type">${ele.type}</div>
+                    <div class="gold-buy">${priceRound}</div>
+                    <div class="gold-cell">${priceCellRound}</div>
+                 </div>
+                
         `;
             });
             goldContent.html(content);
@@ -245,22 +232,11 @@ $(document).ready(function () {
               let priceChangeRound = priceChange.toFixed(2);
               let priceRound = price.toFixed(2);
                 content += `
-        <li class="flex-wr-sb-c p-b-20">
-									<div class="size-w-3 flex-wr-sb-c">
-										<p href="#" class="f1-s-9 text-uppercase cl3">
-											${ele.name}
-										</p>
-                  </div>
-                  
-                  <div>
-                    <p class="f1-s-8 cl3 p-r-20">
-                      Giá: ${priceRound}
-                    </p>
-                    <p class="f1-s-8 cl3 p-r-20">
-                      Tỉ giá thay đổi trong 24 giờ: ${priceChangeRound}%
-                    </p>
-                  </div>
-				</li>
+                <div class="gold-info">
+                <div class="gold-type">${ele.name}</div>
+                <div class="gold-buy">${priceRound} USD</div>
+                <div class="gold-cell">${priceChangeRound}</div>
+                </div>
         `;
             });
             coinContent.html(content);
@@ -284,25 +260,27 @@ $(document).ready(function () {
         success: function (response) {
           let content = '';
           response.forEach(function (ele) {
+            let date = moment(ele.publish_date);
+            let time = date.fromNow();
               let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
               content += `
                 <div class="col-sm-6 p-r-25 p-r-15-sr991">
-                
-                  <div class="m-b-45">
-                      <a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
-                        <img src="${ele.thumb}">
-                      </a>
-                      <div class="p-t-16">
-                        <h5 class="p-b-5">
-                          <a href="detail.html?id=${ele.id}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                            ${ele.title}
-                          </a>
-                        </h5>
-                          <span class="f1-s-3">
-                            ${ele.publish_date}
-                          </span>
-                        </div>
-                  </div>
+                <div class="m-b-45">
+                <a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
+                  <img src="${ele.thumb}" alt="IMG">
+                </a>
+                <button data-id="${ele.id}" class="btn-like-article cate"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+              <div class="p-t-16">
+                <h5 class="p-b-5">
+                  <a href="detail.html?id=${ele.id}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                    ${ele.title}
+                  </a>
+                </h5>
+                <span class="f1-s-3">
+                  ${time}
+                </span>
+              </div>
+            </div>
                 </div>
                 `;
           });
@@ -317,17 +295,45 @@ $(document).ready(function () {
   });
 
   $(document).on('click', '.btn-like-article', function () {
-      let id = $(this).data('id');
-      console.log(id, favItem);
-      if (favItem.indexOf(id) != -1) {
-          $(this).find(`#heartWish${id}`).removeClass('active-icon-fav');
-          favItem = jQuery.grep(favItem, function (value) {
-              return value != id;
-          });
-      } else {
-          $(this).find(`#heartWish${id}`).addClass('active-icon-fav');
-          favItem.push(id);
-      }
-      localStorage.setItem('FAV_LIST', JSON.stringify(favItem));
+    let id = $(this).data('id');
+    console.log(id, favItem);
+    if (favItem.indexOf(id) != -1) {
+        $(this).find(`#heartWish${id}`).removeClass('active-icon-fav');
+        favItem = jQuery.grep(favItem, function (value) {
+            return value != id;
+        });
+        Toastify({
+            text: "Bạn đã bỏ yêu thích bài viết này",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+    } else {
+        $(this).find(`#heartWish${id}`).addClass('active-icon-fav');
+        favItem.push(id);
+        Toastify({
+            text: "Bạn đã yêu thích bài viết này",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+    }
+    localStorage.setItem('FAV_LIST', JSON.stringify(favItem));
   });
 });

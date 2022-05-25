@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body class="animsition">
@@ -45,7 +46,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->
 				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+					<a href="index.html"><img src="images/PBd6bdZ.png" alt="LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -71,7 +72,7 @@
 			<div class="wrap-logo no-banner container">
 				<!-- Logo desktop -->
 				<div class="logo">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="LOGO"></a>
+					<a href="index.html"><img src="images/PBd6bdZ.png" width="200px" alt="LOGO"></a>
 				</div>
 			</div>
 
@@ -172,9 +173,13 @@
 									Giá vàng hôm nay
 								</h3>
 							</div>
-
-							<ul class="p-t-15" id="get-gold">
-							</ul>
+							<div class="gold-decrip">
+								<div class="gold-cate">Loại vàng</div>
+								<div class="gold-price">Giá mua vào</div>
+								<div class="gold-price">Giá bán ra</div>
+							</div>
+							<div id="gold-content">
+							</div>
 						</div>
 
 						<!-- Most Popular -->
@@ -184,9 +189,14 @@
 									Giá Coin
 								</h3>
 							</div>
-
-							<ul class="p-t-35" id="coin-content">
-							</ul>
+							<div class="gold-decrip">
+								<div class="gold-cate">Tên Coin</div>
+								<div class="gold-price">Giá</div>
+								<div class="gold-price">Change 24h</div>
+							</div>
+							<div id="coin-content">
+							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -383,6 +393,8 @@
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
 	<script src="js/categories.js"></script>
+	<script src="https://momentjs.com/downloads/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

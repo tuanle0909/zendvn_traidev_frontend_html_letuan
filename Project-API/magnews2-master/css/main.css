@@ -1709,6 +1709,9 @@ a.breadcrumb-item:hover {
   background-color: #e71d69;
 }
 
+.how2-cl10::before {
+  background-color: rgb(23, 185, 120);
+}
 .how2-cl2::before {
   background-color: #15a752;
 }

@@ -31,6 +31,7 @@
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/tuan.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body class="animsition">
@@ -44,7 +45,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->
 				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+					<a href="index.html"><img src="images/PBd6bdZ.png" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -70,7 +71,7 @@
 			<div class="wrap-logo no-banner container">
 				<!-- Logo desktop -->
 				<div class="logo">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="LOGO"></a>
+					<a href="index.html"><img src="images/PBd6bdZ.png" width="200px" alt="LOGO"></a>
 				</div>
 			</div>
 
@@ -127,18 +128,30 @@
 					<div class="p-r-10 p-r-0-sr991">
 						<!-- Blog Detail -->
 						<div class="p-b-70" id="blog-detail">
-							
+
+						</div>
+						<div>
+							<h4 class="f1-l-4 cl3">
+								Tất cả bình luận <span class="length-cmt"></span>
+							</h4>
+							<ul id="cmt-content">
+							</ul>
 						</div>
 						<div>
 							<h4 class="f1-l-4 cl3 p-b-12">
-							Bình luận về bài viết này
+								Bình luận về bài viết này
 							</h4>
-							<textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20 cmt" placeholder="Bình luận của bạn..."></textarea>
-							<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20 cmt-email" type="text" placeholder="Email*">
-							<button class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10 btn-cmt">
-							Bình luận
-							</button>
+							<textarea class="bo-1-rad-3 bocl13 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20 cmt"
+								placeholder="Bình luận của bạn..."></textarea>
+							<div class="flex-cmt">
+								<input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 cmt-email"
+									type="text" placeholder="Email*">
+								<button
+									class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 btn-cmt">
+									Bình luận
+								</button>
 							</div>
+						</div>
 					</div>
 				</div>
 
@@ -382,6 +395,8 @@
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
 	<script src="js/detail.js"></script>
+	<script src="https://momentjs.com/downloads/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

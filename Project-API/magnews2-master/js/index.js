@@ -6,11 +6,16 @@ $(document).ready(function () {
     let categoriesMobile = $('#zvn-menu-mobile');
     let newestBlog = $('#newest');
     let lastestBlog = $('#lastest');
-    let goldContent = $('#get-gold');
+    let goldContent = $('#gold-content');
     let coinContent = $('#coin-content');
+    let firstArticle = $('#1stArticle');
+    let articles1 = $('#articles1')
+    let secondArticle = $('#2ndArticle');
+    let articles2 = $('#articles2');
+    let thirdArticle = $('#conTent1');
+    let thirdArticle2 = $('#conTent2');
 
     let favItem = JSON.parse(localStorage.getItem('FAV_LIST')) || [];
-    console.log(favItem);
 
     $.ajax({
         type: 'GET',
@@ -99,7 +104,8 @@ $(document).ready(function () {
                                         <h3 class="how1-child2 m-t-14 m-b-10">
                                           <a href="detail.html?id=${ele.id}" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
                                             ${ele.title}
-                                          </a>
+                                          </a> 
+                                          <button data-id="${ele.id}" class="btn-like-article head"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
                                         </h3>
                                     </div>
                                     </div>
@@ -159,28 +165,13 @@ $(document).ready(function () {
                 let priceRound = price.toFixed(2);
                 let priceSell = parseFloat(ele.sell);
                 let priceCellRound = priceSell.toFixed(2);
-                content += `
-							<ul class="p-t-15">
-								<li class="flex-wr-sb-c p-b-20">
-
-									<div class="size-w-3 flex-wr-sb-c">
-										<p href="#" class="f1-s-9 text-uppercase cl3">
-											${ele.type}
-										</p>
-
-                    <div class="gold-content">
-                      <span class="f1-s-8 cl3 p-r-20">
-                        Mua vào: ${priceRound}
-                      </span>
-
-                      <span class="f1-s-8 cl3 p-r-20">
-                        Bán ra: ${priceCellRound}
-                      </span>
-                    </div>
-									</div>  
-								</li>
-							</ul>
-        `;
+                 content += `
+                 <div class="gold-info">
+                    <div class="gold-type">${ele.type}</div>
+                    <div class="gold-buy">${priceRound}</div>
+                    <div class="gold-cell">${priceCellRound}</div>
+                 </div>
+                `;
             });
             goldContent.html(content);
         },
@@ -198,26 +189,270 @@ $(document).ready(function () {
               let priceChangeRound = priceChange.toFixed(2);
               let priceRound = price.toFixed(2);
                 content += `
-        <li class="flex-wr-sb-c p-b-20">
-									<div class="size-w-3 flex-wr-sb-c">
-										<p href="#" class="f1-s-9 text-uppercase cl3">
-											${ele.name}
-										</p>
-                  </div>
-                  
-                  <div>
-                    <p class="f1-s-8 cl3 p-r-20">
-                      Giá: ${priceRound}
-                    </p>
-                    <p class="f1-s-8 cl3 p-r-20">
-                      Tỉ giá thay đổi trong 24 giờ: ${priceChangeRound}%
-                    </p>
-                  </div>
-				</li>
+                <div class="gold-info">
+                <div class="gold-type">${ele.name}</div>
+                <div class="gold-buy">${priceRound} USD</div>
+                <div class="gold-cell">${priceChangeRound}</div>
+                </div>
         `;
             });
             coinContent.html(content);
         },
+    });
+
+    $.ajax({
+        type: "GET",
+        url: API_CATEGORY + "/1/articles",
+        data: {offset: 0, limit: 3},
+        dataType: "json",
+        beforeSend: function () {
+            firstArticle.html('<img width="500" src="images/0_ptDX0HfJCYpo9Pcs.gif">');
+        },
+        success: function (response) {
+            let content = '';
+            let con = ''
+            response.forEach( function (ele, index){
+                let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
+                let date = moment(ele.publish_date);
+                let time = date.fromNow();
+                if (index == 1) {
+                    content = content + `
+                    <div class="m-b-30 rela">
+										<a href="blog-detail-02.html" class="wrap-pic-w hov1 trans-03">
+											<img src="${ele.thumb}" alt="IMG">
+										</a>
+                                        <button data-id="${ele.id}" class="btn-like-article head"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+										<div class="p-t-25">
+											<h5 class="p-b-5">
+												<a href="blog-detail-02.html" class="f1-m-3 cl2 hov-cl10 trans-03">
+													${ele.title}
+												</a>
+											</h5>
+
+											<span class="cl8">
+												<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+													Thế giới
+												</a>
+
+												<span class="f1-s-3 m-rl-3">
+													-
+												</span>
+
+												<span class="f1-s-3">
+													${time}
+												</span>
+											</span>
+
+											<p class="f1-s-1 cl6 p-t-18">
+												${ele.description}
+											</p>
+										</div>
+					</div>
+                    `
+                } else {
+                    con = con + `
+                    <div class="m-b-30 rela">
+										<a href="blog-detail-02.html" class="wrap-pic-w hov1 trans-03">
+											<img src="${ele.thumb}" alt="IMG">
+										</a>
+                                        <button data-id="${ele.id}" class="btn-like-article head"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+										<div class="p-t-10">
+											<h5 class="p-b-5">
+												<a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+													${ele.title}
+												</a>
+											</h5>
+
+											<span class="cl8">
+												<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+													Thế giới
+												</a>
+
+												<span class="f1-s-3 m-rl-3">
+													-
+												</span>
+
+												<span class="f1-s-3">
+													${time}
+												</span>
+											</span>
+										</div>
+									</div>
+                    `
+                }
+                articles1.html(con)
+                firstArticle.html(content)
+            })
+        }
+    });
+
+    $.ajax({
+        type: "GET",
+        url: API_CATEGORY + "/2/articles",
+        data: {offset: 0, limit: 3},
+        dataType: "json",
+        beforeSend: function () {
+            firstArticle.html('<img width="500" src="images/0_ptDX0HfJCYpo9Pcs.gif">');
+        },
+        success: function (response) {
+            let content = '';
+            let con = ''
+            response.forEach( function (ele, index){
+                let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
+                let date = moment(ele.publish_date);
+                let time = date.fromNow();
+                if (index == 1) {
+                    content = content + `
+                    <div class="m-b-30 rela">
+                        <a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
+                            <img src="${ele.thumb}" alt="IMG">
+                        </a>
+                        <button data-id="${ele.id}" class="btn-like-article head"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+                        <div class="p-t-25">
+                            <h5 class="p-b-5">
+                                <a href="detail.html?id=${ele.id}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    ${ele.title}
+                                </a>
+                            </h5>
+
+                            <span class="cl8">
+                                <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+                                    Thế giới
+                                </a>
+
+                                <span class="f1-s-3 m-rl-3">
+                                    -
+                                </span>
+
+                                <span class="f1-s-3">
+                                    ${time}
+                                </span>
+                            </span>
+
+                            <p class="f1-s-1 cl6 p-t-18">
+                                ${ele.description}
+                            </p>
+                        </div>
+					</div>
+                    `
+                } else {
+                    con = con + `
+                    <div class="m-b-30 rela">
+										<a href="detail.html?id=${ele.id}" class="wrap-pic-w hov1 trans-03">
+											<img src="${ele.thumb}" alt="IMG">
+										</a>
+                                        <button data-id="${ele.id}" class="btn-like-article head"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+										<div class="p-t-10">
+											<h5 class="p-b-5">
+												<a href="detail.html?id=${ele.id}" class="f1-s-5 cl3 hov-cl10 trans-03">
+													${ele.title}
+												</a>
+											</h5>
+
+											<span class="cl8">
+												<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+													Thế giới
+												</a>
+
+												<span class="f1-s-3 m-rl-3">
+													-
+												</span>
+
+												<span class="f1-s-3">
+													${time}
+												</span>
+											</span>
+										</div>
+									</div>
+                    `
+                }
+                articles2.html(con);
+                secondArticle.html(content);
+            })
+        }
+    });
+
+    $.ajax({
+        type: "GET",
+        url: API_CATEGORY + "/5/articles",
+        data: {offset: 0, limit: 4},
+        dataType: "json",
+        beforeSend: function () {
+            thirdArticle.html('<img width="500" src="images/0_ptDX0HfJCYpo9Pcs.gif">');
+            thirdArticle2.html('<img width="500" src="images/0_ptDX0HfJCYpo9Pcs.gif">');
+        },
+        success: function (response) {
+            let content1 = '';
+            let content2 = '';
+            response.forEach(function (ele, index){
+                let isActive = favItem.indexOf(ele.id) != -1 ? 'active-icon-fav' : '';
+                let date = moment(ele.publish_date);
+                let time = date.fromNow();
+                if (index < 2) {
+                    content1 = content1 + `
+                    <div class="flex-wr-sb-s m-b-30 rela">
+                        <a href="detail.html?id=${ele.id}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                            <img src="${ele.thumb}" alt="IMG">
+                        </a>
+                        <button data-id="${ele.id}" class="btn-like-article tiny"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+                        <div class="size-w-2">
+                            <h5 class="p-b-5">
+                                <a href="detail.html?id=${ele.id}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                    ${ele.title}
+                                </a>
+                            </h5>
+
+                            <span class="cl8">
+                                <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                    Giải trí
+                                </a>
+
+                                <span class="f1-s-3 m-rl-3">
+                                    -
+                                </span>
+
+                                <span class="f1-s-3">
+                                    ${time}
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    `
+                } else {
+                    content2 = content2 + `
+                    <div class="flex-wr-sb-s m-b-30 rela">
+                    <a href="detail.html?id=${ele.id}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                        <img src="${ele.thumb}" alt="IMG">
+                    </a>
+                    <button data-id="${ele.id}" class="btn-like-article tiny"><i class="fa-solid fa-heart icon-wishlist ${isActive}" id="heartWish${ele.id}"></i></button>
+                    <div class="size-w-2">
+                        <h5 class="p-b-5">
+                            <a href="detail.html?id=${ele.id}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                ${ele.title}
+                            </a>
+                        </h5>
+
+                        <span class="cl8">
+                            <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                Giải chí
+                            </a>
+
+                            <span class="f1-s-3 m-rl-3">
+                                -
+                            </span>
+
+                            <span class="f1-s-3">
+                                ${time}
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                    `
+                }
+                thirdArticle2.html(content2);
+                thirdArticle.html(content1);
+            });
+        }
     });
 
     loadLastestArticle();
@@ -235,9 +470,37 @@ $(document).ready(function () {
             favItem = jQuery.grep(favItem, function (value) {
                 return value != id;
             });
+            Toastify({
+                text: "Bạn đã bỏ yêu thích bài viết này",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         } else {
             $(this).find(`#heartWish${id}`).addClass('active-icon-fav');
             favItem.push(id);
+            Toastify({
+                text: "Bạn đã yêu thích bài viết này",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
         localStorage.setItem('FAV_LIST', JSON.stringify(favItem));
     });

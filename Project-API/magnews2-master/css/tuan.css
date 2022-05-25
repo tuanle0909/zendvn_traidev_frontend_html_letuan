@@ -36,7 +36,117 @@ html{
     margin-right: 22px;
 }
 
-.heart-detail{
-    top: 20px;
-    left: 0;
+.flex-cmt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.cmt{
+    width: 100%;
+}
+
+.unfound-cmt{
+    color: red;
+    margin-bottom: 10px;
+}
+
+.email-i{
+    color: black;
+    font-weight: 600;
+}
+
+.border-cmt{
+    display: inline-block;
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 15px;
+    background-color: rgb(236, 236, 236);
+    padding: 10px;
+    min-width: 100px;
+}
+
+#cmt-content{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#cmt-content > li {
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.gold-decrip{
+    margin-top: 12px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.gold-decrip div {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.gold-cate{
+    width: 50%;
+    text-align: center;
+    font-weight: 700;
+    color: black;
+}
+
+.gold-price{
+    text-align: center;
+    width:  25%;
+    font-weight: 700;
+    color: black;
+}
+
+.gold-info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.gold-info div{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.gold-type{
+    font-weight: 700;
+    color: black;
+    width: 50%;
+}
+
+.gold-buy{
+    color: black;
+    width: 25%;
+}
+
+.gold-cell{
+    color: black;
+    width: 25%;
+}
+
+.rela{
+    position: relative;
+}
+
+.tiny{
+    right: -12%;
+    top: 10%;
+}
+
+.detail-flex{
+    width: 100%;
+}
+
+.title-detail{
+    width: 90%;
+}
+
+.heart-detail{
+    width: 10%;
+    top: 25px;
+}
+
